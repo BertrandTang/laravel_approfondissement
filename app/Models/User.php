@@ -24,4 +24,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class); // Relation one to many avec Order
     }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class)->withTimestamps();
+    }
 }

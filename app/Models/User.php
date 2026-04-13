@@ -15,14 +15,13 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
-
     public function settings()
     {
         return $this->hasOne(Settings::class); // Relation One to One avec Settings.
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class); // Relation one to many avec Order
     }
 }

@@ -11,6 +11,11 @@ class Order extends Model
 {
     public function user()
     {
-        return $this->belongsTo(User::class); // Order belongs to User
+        return $this->belongsTo(User::class); 
+    }
+
+    public function orderable()
+    {
+        return $this->morphTo(); // Une commande "appartient" à ProductOrder ou SubscriptionOrder
     }
 }
